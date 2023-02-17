@@ -13,9 +13,9 @@
     <title>Calculadora</title>
 </head>
 <body>
-    <div class="container">
-        <div class="row align-items-center">
-            <table class="table table-hover">
+    <div class="container frt">
+        <div class="row d-flex align-items-center">
+            <table class="table table-hover table-dark text-light">
                 <thead>
                     <tr>
                       <th scope="col"></th>
@@ -82,43 +82,46 @@
                     <tr>
                         <td class="align-middle">Precios</td>
                         <td class="py-4">
-                            <div class="row justify-content-center">
-                                <button name="data-sub" class="col-1 d-flex justify-content-center">-</button>
-                                <input id="count" type="text" class="count col-2 mx-2 text-center border-0" readonly>
-                                <button name="data-add" class="col-1 d-flex justify-content-center">+</button>
+                            <div class="text-center">
+                                <span role="button" name="data-sub" class="btn btn-outline-light btn-sm">-</span>
+                                <span role="text" class="m-4" id="count"></span>
+                                <span role="button" name="data-add" class="btn btn-outline-light btn-sm">+</span> 
                             </div>
                             <p class="d-flex justify-content-center">Equipos</p>
-                    
-                            <div class="d-flex justify-content-center row">
-                                <p type="text" class="col-1 border-0 align-middle">S/.</p>
-                                <input class="text-center col-3 border-0 " type="text" id="result" readonly>
+                            <div class="d-flex justify-content-center">
+                                <span role="text">S/. <span role="text" id="result"></span></span>
                             </div>
                         </td>
                         <td class="py-4">
-                            <div class="row justify-content-center">
-                                <button name="data-sub-adv" class="col-1 d-flex justify-content-center">-</button>
-                                <input id="count-adv" type="text" class="count-adv col-2 mx-2 text-center border-0" readonly>
-                                <button name="data-add-adv" class="col-1 d-flex justify-content-center">+</button>
+                            <div class="text-center">
+                                <span role="button" name="data-sub-adv" class="btn btn-outline-light btn-sm">-</span>
+                                <span role="text" class="m-4" id="count-adv"></span>
+                                <span role="button" name="data-add-adv" class="btn btn-outline-light btn-sm">+</span>
                             </div>
                             <p class="d-flex justify-content-center">Equipos</p>
-                    
-                            <div class="d-flex justify-content-center row">
-                                <p type="text" class="col-1 border-0 align-middle">S/.</p>
-                                <input class="text-center col-3 border-0" type="text" id="result-adv" readonly>
+                            <div class="d-flex justify-content-center">
+                                <span role="text">S/. <span role="text" id="result-adv"></span></span>
                             </div>
                         </td>
                         <td></td>
                     </tr>
                     <tr>
                         <td></td>
-                        <td class="text-center">COMPRAR</td>
-                        <td class="text-center">COMPRAR</td>
-                        <td class="text-center">COMPRAR</td>
+                        <td class="text-center">COTIZAR</td>
+                        <td class="text-center">COTIZAR</td>
+                        <td class="text-center">COTIZAR</td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
+    
+    <style>
+        .frt {
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+    </style>
 
     <script>
         // Constants
@@ -134,12 +137,16 @@
         var count = document.getElementById('count');
         var result = document.getElementById('result');
         count.value = 5;
+        count.textContent = count.value;
         result.value = (count.value * 18.5).toFixed(2);
+        result.textContent = result.value;
 
         var countAdv = document.getElementById('count-adv');
         var resultAdv = document.getElementById('result-adv');
         countAdv.value = 5;
+        countAdv.textContent = countAdv.value;
         resultAdv.value = (countAdv.value * 20).toFixed(2);
+        resultAdv.textContent = resultAdv.value;
 
         // Buttons functions
 
@@ -154,6 +161,7 @@
             if (count.value < 50) {
                 const previous = parseFloat(count.value);
                 count.value = previous + 1;
+                count.textContent = count.value;
             }
         }
 
@@ -166,6 +174,7 @@
             if (countAdv.value < 50) {
                 const previous = parseFloat(countAdv.value);
                 countAdv.value = previous + 1;
+                countAdv.textContent = countAdv.value;
             }
         }
 
@@ -180,6 +189,7 @@
             if (count.value > 5) {
                 const previous = parseFloat(count.value);
                 count.value = previous - 1;
+                count.textContent = count.value;
             }
         }
 
@@ -192,6 +202,7 @@
             if (countAdv.value > 5) {
                 const previous = parseFloat(countAdv.value);
                 countAdv.value = previous - 1;
+                countAdv.textContent = countAdv.value;
             }
         }
 
@@ -206,12 +217,13 @@
             else if (previous >= 11 && previous <= 25){
                 result.value = (previous * 15.5).toFixed(2);
             }
-            else if (previous >= 26 && previous <= 49){
+            else if (previous >= 26 && previous <= 50){
                 result.value = (previous * 13.5).toFixed(2);
             }
             else if (previous == 50){
                 result.value = (previous * 12.5).toFixed(2);
             }
+            result.textContent = result.value;
         }
 
         function refreshPriceAdv(){
@@ -226,6 +238,7 @@
             else if (previousAdv == 50){
                 resultAdv.value = (previousAdv * 17).toFixed(2);
             }
+            resultAdv.textContent = resultAdv.value;
         }
     </script>
     
