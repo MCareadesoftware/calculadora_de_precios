@@ -108,7 +108,7 @@
                     <tr>
                         <td></td>
                         <td class="text-center" onclick="setLink()">COTIZAR</td>
-                        <td class="text-center">COTIZAR</td>
+                        <td class="text-center" onclick="setLinkAdv()">COTIZAR</td>
                         <td class="text-center">COTIZAR</td>
                     </tr>
                 </tbody>
@@ -243,6 +243,10 @@
 
         function setLink(){
             var miUrl = "https://api.whatsapp.com/send?phone=+51959117896&text=Hola quisiera comprar licencia para " + count.value + " equipos por el valor de S/. " + result.value;
+            window.open(miUrl);
+        }
+        function setLinkAdv(){
+            var miUrl = "https://api.whatsapp.com/send?phone=+51959117896&text=Hola quisiera comprar licencia para " + countAdv.value + " equipos por el valor de S/. " + resultAdv.value;
             window.open(miUrl);
         }
     </script>
