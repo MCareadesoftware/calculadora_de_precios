@@ -79,7 +79,7 @@
                         <td class="text-center">+</td>
                         <td class="text-center">+</td>
                     </tr>
-                    <tr>
+                    <!--<tr>
                         <td class="align-middle">Precios</td>
                         <td class="py-4">
                             <div class="row justify-content-center">
@@ -108,40 +108,41 @@
                             </div>
                         </td>
                         <td></td>
+                    </tr>-->
+                    
+                    <tr>
+                        <td class="align-middle">Servicios de seguridad</td>
+                        <td class="text-center py-5">
+                            <span role="button" class="btn btn-outline-light btn-sm py-2 px-4" name="data-sub">-</span>
+                            <span id="count" role="text" class="m-4"></span>
+                            <span role="button" class="btn btn-outline-light btn-sm py-2 px-4" name="data-add">+</span> 
+                            <div class="d-flex justify-content-center">
+                                <span class="m-2">Equipos</span>
+                            </div>
+                            <div class="d-flex justify-content-center my-2">
+                                <span role="text">S/.<span id="result" role="text"></span></span>
+                            </div>
+                        </td>
+                        <td class="text-center py-5">
+                            <div class="">
+                                <span role="button" class="btn btn-outline-light btn-sm py-2 px-4" name="data-sub-adv">-</span>
+                                <span id="count-adv" role="text" class="m-4" ></span>
+                                <span role="button" class="btn btn-outline-light btn-sm py-2 px-4" name="data-add-adv">+</span> 
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <span class="m-2">Equipos</span>
+                            </div>
+                            <div class="d-flex justify-content-center my-2">
+                                <span role="text">S/.<span id="result-adv" role="text"></span></span>
+                            </div>
+                        </td>
+                        <td class="text-center"></td>
                     </tr>
                     <tr>
                         <td></td>
                         <td class="text-center">COTIZAR</td>
                         <td class="text-center">COTIZAR</td>
                         <td class="text-center">COTIZAR</td>
-                    </tr>
-                    <tr>
-                        <td class="align-middle">Servicios de seguridad</td>
-                        <td class="text-center py-5">
-                            <span role="button" class="btn btn-outline-light btn-sm">-</span>
-                            <span role="text" class="m-4">A</span>
-                            <span role="button" class="btn btn-outline-light btn-sm">+</span> 
-                            <div class="d-flex justify-content-center">
-                                <span class="m-2">Equipos</span>
-                            </div>
-                            <div class="d-flex justify-content-center my-2">
-                                <span role="text">S/.<span role="text">123.00</span></span>
-                            </div>
-                        </td>
-                        <td class="text-center py-5">
-                            <div class="">
-                                <span role="button" class="btn btn-outline-light btn-sm">-</span>
-                                <span role="text" class="m-4">A</span>
-                                <span role="button" class="btn btn-outline-light btn-sm">+</span> 
-                            </div>
-                            <div class="d-flex justify-content-center">
-                                <span class="m-2">Equipos</span>
-                            </div>
-                            <div class="d-flex justify-content-center my-2">
-                                <span role="text">S/.<span role="text">123.00</span></span>
-                            </div>
-                        </td>
-                        <td class="text-center"></td>
                     </tr>
                 </tbody>
             </table>
@@ -162,12 +163,16 @@
         var count = document.getElementById('count');
         var result = document.getElementById('result');
         count.value = 5;
+        count.textContent = count.value;
         result.value = (count.value * 18.5).toFixed(2);
+        result.textContent = result.value;
 
         var countAdv = document.getElementById('count-adv');
         var resultAdv = document.getElementById('result-adv');
         countAdv.value = 5;
-        resultAdv.value = (countAdv.value * 20).toFixed(2);
+        countAdv.textContent = countAdv.value;
+        resultAdv.value = (countAdv.value * 20.0).toFixed(2);
+        resultAdv.textContent = resultAdv.value;
 
         // Buttons functions
 
@@ -182,6 +187,7 @@
             if (count.value < 50) {
                 const previous = parseFloat(count.value);
                 count.value = previous + 1;
+                count.textContent = count.value;
             }
         }
 
@@ -194,6 +200,7 @@
             if (countAdv.value < 50) {
                 const previous = parseFloat(countAdv.value);
                 countAdv.value = previous + 1;
+                countAdv.textContent = countAdv.value;
             }
         }
 
@@ -208,6 +215,7 @@
             if (count.value > 5) {
                 const previous = parseFloat(count.value);
                 count.value = previous - 1;
+                count.textContent = count.value;
             }
         }
 
@@ -220,6 +228,7 @@
             if (countAdv.value > 5) {
                 const previous = parseFloat(countAdv.value);
                 countAdv.value = previous - 1;
+                countAdv.textContent = countAdv.value;
             }
         }
 
@@ -230,15 +239,19 @@
 
             if (previous <= 10){
                 result.value = (previous * 18.5).toFixed(2);
+                result.textContent = result.value;
             }
             else if (previous >= 11 && previous <= 25){
                 result.value = (previous * 15.5).toFixed(2);
+                result.textContent = result.value;
             }
             else if (previous >= 26 && previous <= 50){
                 result.value = (previous * 13.5).toFixed(2);
+                result.textContent = result.value;
             }
             else if (previous == 50){
                 result.value = (previous * 12.5).toFixed(2);
+                result.textContent = result.value;
             }
         }
 
@@ -246,13 +259,16 @@
             const previousAdv = countAdv.value;
             
             if (previousAdv <= 25){
-            resultAdv.value = (previousAdv * 20).toFixed(2);
+                resultAdv.value = (previousAdv * 20).toFixed(2);
+                resultAdv.textContent = resultAdv.value;
             }
             else if (previousAdv >= 26 && previousAdv <= 49){
                 resultAdv.value = (previousAdv * 18).toFixed(2);
+                resultAdv.textContent = resultAdv.value;
             }
             else if (previousAdv == 50){
                 resultAdv.value = (previousAdv * 17).toFixed(2);
+                resultAdv.textContent = resultAdv.value;
             }
         }
     </script>
