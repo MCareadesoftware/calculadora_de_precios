@@ -91,7 +91,7 @@
                     
                             <div class="d-flex justify-content-center row">
                                 <p type="text" class="col-1 border-0 align-middle">S/.</p>
-                                <input class="text-center col-3 border-0" type="text" id="result" readonly>
+                                <input class="text-center col-3 border-0 " type="text" id="result" readonly>
                             </div>
                         </td>
                         <td class="py-4">
@@ -104,7 +104,7 @@
                     
                             <div class="d-flex justify-content-center row">
                                 <p type="text" class="col-1 border-0 align-middle">S/.</p>
-                                <input class="text-center col-3 border-0 d-flex justify-content-center" type="text" id="result-adv" readonly>
+                                <input class="text-center col-3 border-0" type="text" id="result-adv" readonly>
                             </div>
                         </td>
                         <td></td>
@@ -206,7 +206,7 @@
             else if (previous >= 11 && previous <= 25){
                 result.value = (previous * 15.5).toFixed(2);
             }
-            else if (previous >= 26 && previous <= 50){
+            else if (previous >= 26 && previous <= 49){
                 result.value = (previous * 13.5).toFixed(2);
             }
             else if (previous == 50){
