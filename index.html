@@ -107,7 +107,7 @@
                     </tr>
                     <tr>
                         <td></td>
-                        <td class="text-center">COTIZAR</td>
+                        <td class="text-center" onclick="setLink()">COTIZAR</td>
                         <td class="text-center">COTIZAR</td>
                         <td class="text-center">COTIZAR</td>
                     </tr>
@@ -239,6 +239,11 @@
                 resultAdv.value = (previousAdv * 17).toFixed(2);
             }
             resultAdv.textContent = resultAdv.value;
+        }
+
+        function setLink(){
+            var miUrl = "https://api.whatsapp.com/send?phone=+51959117896&text=Hola quisiera comprar licencia para " + count.value + " equipos por el valor de S/. " + result.value;
+            window.open(miUrl);
         }
     </script>
     
