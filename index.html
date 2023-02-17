@@ -19,76 +19,215 @@
                 <thead>
                     <tr>
                       <th scope="col"></th>
-                      <th scope="col">ESET PROTECT ENTRY</th>
-                      <th scope="col">ESET PROTECT ADVANCED</th>
-                      <th scope="col">ESET PROTECT ADVANCED</th>
+                      <th scope="col" class="text-center">ESET PROTECT ENTRY</th>
+                      <th scope="col" class="text-center">ESET PROTECT ADVANCED</th>
+                      <th scope="col" class="text-center">ESET PROTECT ADVANCED</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
                         <td>Consola</td>
-                        <td>✓</td>
-                        <td>✓</td>
-                        <td>✓</td>
+                        <td class="text-center">✓</td>
+                        <td class="text-center">✓</td>
+                        <td class="text-center">✓</td>
                     </tr>
                     <tr>
                         <td>Protección moderna para endpoints</td>
-                        <td>✓</td>
-                        <td>✓</td>
-                        <td>✓</td>
+                        <td class="text-center">✓</td>
+                        <td class="text-center">✓</td>
+                        <td class="text-center">✓</td>
                     </tr>
                     <tr>
                         <td>Seguridad para servidor de archivo</td>
-                        <td>✓</td>
-                        <td>✓</td>
-                        <td>✓</td>
+                        <td class="text-center">✓</td>
+                        <td class="text-center">✓</td>
+                        <td class="text-center">✓</td>
                     </tr>
                     <tr>
                         <td>Cifrado del disco completo</td>
-                        <td>X</td>
-                        <td>✓</td>
-                        <td>✓</td>
+                        <td class="text-center">X</td>
+                        <td class="text-center">✓</td>
+                        <td class="text-center">✓</td>
                     </tr>
                     <tr>
                         <td>Defensa avanzada contra amenazas</td>
-                        <td>X</td>
-                        <td>✓</td>
-                        <td>✓</td>
+                        <td class="text-center">X</td>
+                        <td class="text-center">✓</td>
+                        <td class="text-center">✓</td>
                     </tr>
                     <tr>
                         <td>Protección de aplicaciones en la nube</td>
-                        <td>X</td>
-                        <td>X</td>
-                        <td>✓</td>
+                        <td class="text-center">X</td>
+                        <td class="text-center">X</td>
+                        <td class="text-center">✓</td>
                     </tr>
                     <tr>
                         <td>Seguridad para correo</td>
-                        <td>X</td>
-                        <td>X</td>
-                        <td>✓</td>
+                        <td class="text-center">X</td>
+                        <td class="text-center">X</td>
+                        <td class="text-center">✓</td>
                     </tr>
                     <tr>
                         <td>Detección y respuesta</td>
-                        <td>✓</td>
-                        <td>✓</td>
-                        <td>✓</td>
+                        <td class="text-center">✓</td>
+                        <td class="text-center">✓</td>
+                        <td class="text-center">✓</td>
                     </tr>
                     <tr>
                         <td>Servicios de seguridad</td>
-                        <td>+</td>
-                        <td>+</td>
-                        <td>+</td>
+                        <td class="text-center">+</td>
+                        <td class="text-center">+</td>
+                        <td class="text-center">+</td>
+                    </tr>
+                    <tr>
+                        <td class="align-middle">Precios</td>
+                        <td class="py-4">
+                            <div class="row justify-content-center">
+                                <button name="data-sub" class="col-1 d-flex justify-content-center">-</button>
+                                <input id="count" type="text" class="count col-2 mx-2 text-center border-0" readonly>
+                                <button name="data-add" class="col-1 d-flex justify-content-center">+</button>
+                            </div>
+                            <p class="d-flex justify-content-center">Equipos</p>
+                    
+                            <div class="d-flex justify-content-center row">
+                                <p type="text" class="col-1 border-0 align-middle">S/.</p>
+                                <input class="text-center col-3 border-0" type="text" id="result" readonly>
+                            </div>
+                        </td>
+                        <td class="py-4">
+                            <div class="row justify-content-center">
+                                <button name="data-sub-adv" class="col-1 d-flex justify-content-center">-</button>
+                                <input id="count-adv" type="text" class="count-adv col-2 mx-2 text-center border-0" readonly>
+                                <button name="data-add-adv" class="col-1 d-flex justify-content-center">+</button>
+                            </div>
+                            <p class="d-flex justify-content-center">Equipos</p>
+                    
+                            <div class="d-flex justify-content-center row">
+                                <p type="text" class="col-1 border-0 align-middle">S/.</p>
+                                <input class="text-center col-3 border-0 d-flex justify-content-center" type="text" id="result-adv" readonly>
+                            </div>
+                        </td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td></td>
-                        <td>COMPRAR</td>
-                        <td>COMPRAR</td>
-                        <td>COMPRAR</td>
+                        <td class="text-center">COMPRAR</td>
+                        <td class="text-center">COMPRAR</td>
+                        <td class="text-center">COMPRAR</td>
                     </tr>
-                  </tbody>
+                </tbody>
             </table>
         </div>
     </div>
+
+    <script>
+        // Constants
+
+        const buttonAdd = document.getElementsByName('data-add')[0];
+        const buttonSub = document.getElementsByName('data-sub')[0];
+
+        const buttonAddAdv = document.getElementsByName('data-add-adv')[0];
+        const buttonSubAdv = document.getElementsByName('data-sub-adv')[0];
+
+        // Initial variables
+
+        var count = document.getElementById('count');
+        var result = document.getElementById('result');
+        count.value = 5;
+        result.value = (count.value * 18.5).toFixed(2);
+
+        var countAdv = document.getElementById('count-adv');
+        var resultAdv = document.getElementById('result-adv');
+        countAdv.value = 5;
+        resultAdv.value = (countAdv.value * 20).toFixed(2);
+
+        // Buttons functions
+
+        // Add pc's
+
+        buttonAdd.addEventListener('click', function(){
+            calculateAdd();
+            refreshPrice();
+        });
+
+        function calculateAdd(){
+            if (count.value < 50) {
+                const previous = parseFloat(count.value);
+                count.value = previous + 1;
+            }
+        }
+
+        buttonAddAdv.addEventListener('click', function(){
+            calculateAddAdv();
+            refreshPriceAdv();
+        });
+
+        function calculateAddAdv(){
+            if (countAdv.value < 50) {
+                const previous = parseFloat(countAdv.value);
+                countAdv.value = previous + 1;
+            }
+        }
+
+        // Sub pc's
+
+        buttonSub.addEventListener('click', function(){
+            calculateSub();
+            refreshPrice();
+        });
+
+        function calculateSub(){
+            if (count.value > 5) {
+                const previous = parseFloat(count.value);
+                count.value = previous - 1;
+            }
+        }
+
+        buttonSubAdv.addEventListener('click', function(){
+            calculateSubAdv();
+            refreshPriceAdv();
+        });
+
+        function calculateSubAdv(){
+            if (countAdv.value > 5) {
+                const previous = parseFloat(countAdv.value);
+                countAdv.value = previous - 1;
+            }
+        }
+
+        // Refresh
+
+        function refreshPrice(){
+            const previous = count.value;
+
+            if (previous <= 10){
+                result.value = (previous * 18.5).toFixed(2);
+            }
+            else if (previous >= 11 && previous <= 25){
+                result.value = (previous * 15.5).toFixed(2);
+            }
+            else if (previous >= 26 && previous <= 50){
+                result.value = (previous * 13.5).toFixed(2);
+            }
+            else if (previous == 50){
+                result.value = (previous * 12.5).toFixed(2);
+            }
+        }
+
+        function refreshPriceAdv(){
+            const previousAdv = countAdv.value;
+            
+            if (previousAdv <= 25){
+            resultAdv.value = (previousAdv * 20).toFixed(2);
+            }
+            else if (previousAdv >= 26 && previousAdv <= 49){
+                resultAdv.value = (previousAdv * 18).toFixed(2);
+            }
+            else if (previousAdv == 50){
+                resultAdv.value = (previousAdv * 17).toFixed(2);
+            }
+        }
+    </script>
     
 </body>
 </html>
